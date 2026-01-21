@@ -9,6 +9,7 @@ screen.setup(width=600, height=600)
 screen.tracer(0)
 
 player = Player()
+cars = CarManager()
 
 # Turtle movement
 screen.listen()
@@ -18,5 +19,8 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+
+    cars.create_car()
+    cars.move_cars()
 
 screen.exitonclick()
