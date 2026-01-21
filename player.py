@@ -11,8 +11,18 @@ class Player(Turtle):
         self.penup()
         self.color("black")
         self.setheading(90)
-        self.goto(STARTING_POSITION)
+        self.next_round()
 
     def go_up(self):
         new_y = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
+
+    def crossing_success(self):
+        if self.ycor() > FINISH_LINE_Y:
+            return True
+        else:
+            return False
+
+    def next_round(self):
+        self.goto(STARTING_POSITION)
+
