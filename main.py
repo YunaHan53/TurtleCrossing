@@ -10,6 +10,7 @@ screen.tracer(0)
 
 player = Player()
 cars = CarManager()
+scoreboard = Scoreboard()
 
 # Turtle movement
 screen.listen()
@@ -22,5 +23,12 @@ while game_is_on:
 
     cars.create_car()
     cars.move_cars()
+
+    # Detect when turtle player collides with car
+    for car in cars.car_list:
+        if car.distance(player) < 20:
+            scoreboard.game_over()
+            game_is_on = False
+
 
 screen.exitonclick()
