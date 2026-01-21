@@ -30,5 +30,10 @@ while game_is_on:
             scoreboard.game_over()
             game_is_on = False
 
+    # Detect when turtle player reaches the top
+    if player.crossing_success():
+        player.next_round()
+        scoreboard.increase_level()
+        cars.increase_car_speed()
 
 screen.exitonclick()
